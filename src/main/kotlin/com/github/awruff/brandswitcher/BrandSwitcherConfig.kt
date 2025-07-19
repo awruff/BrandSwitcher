@@ -3,6 +3,7 @@ package com.github.awruff.brandswitcher
 import cc.polyfrost.oneconfig.config.Config
 import cc.polyfrost.oneconfig.config.annotations.Dropdown
 import cc.polyfrost.oneconfig.config.annotations.Info
+import cc.polyfrost.oneconfig.config.annotations.Switch
 import cc.polyfrost.oneconfig.config.annotations.Text
 import cc.polyfrost.oneconfig.config.data.InfoType
 import cc.polyfrost.oneconfig.config.data.Mod
@@ -29,7 +30,14 @@ object BrandSwitcherConfig : Config(
     @Text(
         name = "Brand"
     )
-    var brand: String = ClientBrandRetriever.getClientModName()
+    var brand: String = "fml,forge"
+
+    @Switch(
+        name = "Disable Forge",
+        description = "Disable's Forge's packets",
+        category = "Extra"
+    )
+    var noForge = false
 
     init {
         initialize()
@@ -38,8 +46,8 @@ object BrandSwitcherConfig : Config(
             when (preset) {
                 0 -> brand = "vanilla"
                 1 -> brand = "fml,forge"
-                2 -> brand = "lunarclient"
-                3 -> brand = "badlionclient"
+                2 -> brand = "lunarclient:v2.20.3-2529"
+                3 -> brand = "badlion"
             }
         }
 

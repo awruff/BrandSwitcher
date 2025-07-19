@@ -7,10 +7,16 @@
     "maxShiftBy": 5
   },
   "client": [
-    "ClientBrandRetrieverMixin"
+    "ClientBrandRetrieverMixin",
+    "noforge.NetHandlerPlayClientMixin"
   ],
   "verbose": true,
   "mixins": [
-    "FMLCommonHandlerMixin"
+    "FMLCommonHandlerMixin",
+    "noforge.C00HandshakeMixin",
+    "noforge.ChannelRegistrationHandlerMixin",
+    "noforge.HandshakeMessageHandlerMixin",
+    "noforge.NetworkDispatcherMixin",
+    "noforge.NetworkManagerMixin"
   ]
 }
