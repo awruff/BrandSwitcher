@@ -13,10 +13,11 @@
   "verbose": true,
   "mixins": [
     "FMLCommonHandlerMixin",
+    "accessors.IC17PacketCustomPayload",
     "noforge.C00HandshakeMixin",
-    "noforge.ChannelRegistrationHandlerMixin",
-    "noforge.HandshakeMessageHandlerMixin",
-    "noforge.NetworkDispatcherMixin",
+    "noforge.forge.ChannelRegistrationHandlerMixin",
+    "noforge.forge.HandshakeMessageHandlerMixin",
+    "noforge.forge.NetworkDispatcherMixin",
     "noforge.NetworkManagerMixin"
   ]
 }

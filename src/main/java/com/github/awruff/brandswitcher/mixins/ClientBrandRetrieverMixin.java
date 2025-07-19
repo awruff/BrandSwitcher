@@ -1,6 +1,6 @@
 package com.github.awruff.brandswitcher.mixins;
 
-import com.github.awruff.brandswitcher.BrandSwitcherConfig;
+import com.github.awruff.brandswitcher.ConfigHelper;
 import net.minecraft.client.ClientBrandRetriever;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = ClientBrandRetriever.class, remap = false)
 public class ClientBrandRetrieverMixin {
-    @Inject(method = "getClientModName", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "getClientModName", at = @At("HEAD"), cancellable = true)
     private static void switchClientModName(CallbackInfoReturnable<String> cir) {
-        cir.setReturnValue(BrandSwitcherConfig.INSTANCE.getBrand());
+        cir.setReturnValue(ConfigHelper.getBrand());
     }
 }

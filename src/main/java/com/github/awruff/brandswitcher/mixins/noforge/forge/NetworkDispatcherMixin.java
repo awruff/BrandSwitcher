@@ -1,7 +1,6 @@
-package com.github.awruff.brandswitcher.mixins.noforge;
+package com.github.awruff.brandswitcher.mixins.noforge.forge;
 
-
-import com.github.awruff.brandswitcher.BrandSwitcherConfig;
+import com.github.awruff.brandswitcher.ConfigHelper;
 import net.minecraft.network.Packet;
 import net.minecraftforge.fml.common.network.handshake.NetworkDispatcher;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,12 +8,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(NetworkDispatcher.class)
+@Mixin(value = NetworkDispatcher.class, remap = false)
 public class NetworkDispatcherMixin {
-    @Inject(method = "handleVanilla(Lnet/minecraft/network/Packet;)Z", at = @At("HEAD"), remap = false, cancellable = true)
+    @Inject(method = "handleVanilla(Lnet/minecraft/network/Packet;)Z", at = @At("HEAD"), cancellable = true)
     private void handleVanilla(Packet<?> msg, CallbackInfoReturnable<Boolean> cir) {
-        if (BrandSwitcherConfig.INSTANCE.getNoForge()) {
-            cir.setReturnValue(false);
-        }
+        if (ConfigHelper.disableForge()) cir.setReturnValue(false);
     }
 }
