@@ -2,6 +2,7 @@ package com.github.awruff.brandswitcher.mixins.noforge;
 
 import com.github.awruff.brandswitcher.BrandSwitcherConfig;
 import io.netty.buffer.Unpooled;
+import net.minecraft.client.ClientBrandRetriever;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -33,7 +34,7 @@ public class NetworkManagerMixin {
 
             if (!channelName.startsWith("MC|")) callbackInfo.cancel();
             else if(channelName.equalsIgnoreCase("MC|Brand")) {
-                final PacketBuffer packetBuffer = new PacketBuffer(Unpooled.buffer()).writeString("vanilla");
+                final PacketBuffer packetBuffer = new PacketBuffer(Unpooled.buffer()).writeString(ClientBrandRetriever.getClientModName());
 
                 try {
                     final Field field = packetCustomPayload.getClass().getDeclaredField("field_149561_c");
