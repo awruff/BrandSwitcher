@@ -1,0 +1,11 @@
+[
+  {
+    "modid": "${mod_id}",
+    "version": "${mod_version}",
+    "mcversion": "${mc_version}",
+    "url": "https://github.com/awruff/BrandSwitcher",
+    "authorList": [
+      "chromaticforge", "awruff"
+    ]
+  }
+]

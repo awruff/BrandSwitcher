@@ -1,0 +1,16 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.7",
+  "package": "com.github.awruff.brandswitcher.mixins",
+  "refmap": "mixins.${mod_id}.refmap.json",
+  "injectors": {
+    "maxShiftBy": 5
+  },
+  "client": [
+    "ClientBrandRetrieverMixin"
+  ],
+  "verbose": true,
+  "mixins": [
+    "FMLCommonHandlerMixin"
+  ]
+}
