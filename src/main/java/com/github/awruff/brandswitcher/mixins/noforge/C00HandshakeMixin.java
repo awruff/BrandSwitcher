@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * @author CCBlueX
+ */
 @Mixin(C00Handshake.class)
 public class C00HandshakeMixin {
     @Shadow private int protocolVersion;

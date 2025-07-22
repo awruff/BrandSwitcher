@@ -1,4 +1,4 @@
-package com.github.awruff.brandswitcher.mixins.noforge.forge;
+package com.github.awruff.brandswitcher.mixins.noforge.patches;
 
 import com.github.awruff.brandswitcher.ConfigHelper;
 import io.netty.channel.ChannelHandlerContext;
@@ -14,7 +14,7 @@ public class HandshakeMessageHandlerMixin {
             method = "userEventTriggered(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Object;)V",
             at = @At("HEAD"), cancellable = true
     )
-    public void userEventTriggeredVanilla(ChannelHandlerContext ctx, Object obj, final CallbackInfo ci) {
+    private void userEventTriggeredVanilla(ChannelHandlerContext ctx, Object obj, final CallbackInfo ci) {
         if (ConfigHelper.disableForge()) ci.cancel();
     }
 }

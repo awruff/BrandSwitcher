@@ -8,18 +8,18 @@ import cc.polyfrost.oneconfig.config.annotations.Text
 import cc.polyfrost.oneconfig.config.data.InfoType
 import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
-import net.minecraft.client.ClientBrandRetriever
+import cc.polyfrost.oneconfig.utils.commands.CommandManager
 
 object BrandSwitcherConfig : Config(
-    Mod("@MOD_ID@", ModType.UTIL_QOL),
-    "@MOD_ID@" + "json"
+    Mod("@MOD_NAME@", ModType.UTIL_QOL, "/assets/brandswitcher/icon.svg"),
+    "@MOD_ID@.json"
 ) {
     @Info(
         text = "You must rejoin for changes to take affect!",
         type = InfoType.WARNING,
         size = 1
     )
-    var meow: Boolean = false
+    var _warning: Boolean = false
 
     @Dropdown(
         name = "Presets",
@@ -42,11 +42,13 @@ object BrandSwitcherConfig : Config(
     init {
         initialize()
 
+        CommandManager.register(BrandSwitcherCommand)
+
         addListener("preset") {
             when (preset) {
                 0 -> brand = "vanilla"
                 1 -> brand = "fml,forge"
-                2 -> brand = "lunarclient:v2.20.3-2529"
+                2 -> brand = "lunarclient:v2.20.4-2529"
                 3 -> brand = "badlion"
             }
         }

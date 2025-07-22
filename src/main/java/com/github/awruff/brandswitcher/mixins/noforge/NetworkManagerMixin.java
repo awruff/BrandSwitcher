@@ -15,13 +15,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * @author CCBlueX
+ */
 @Mixin(NetworkManager.class)
 public class NetworkManagerMixin {
     @Inject(method = "sendPacket(Lnet/minecraft/network/Packet;)V", at = @At("HEAD"), cancellable = true)
     private void sendPacketVanilla(final Packet<?> packet, final CallbackInfo ci) {
-        if (Minecraft.getMinecraft().isIntegratedServerRunning() ||
-                !BrandSwitcherConfig.INSTANCE.getNoForge()
-        ) return;
+        if (!ConfigHelper.disableForge()) return;
 
         if (packet instanceof FMLProxyPacket) {
             ci.cancel();

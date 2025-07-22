@@ -1,6 +1,5 @@
-package com.github.awruff.brandswitcher.mixins.noforge.forge;
+package com.github.awruff.brandswitcher.mixins.noforge.patches;
 
-import com.github.awruff.brandswitcher.BrandSwitcherConfig;
 import com.github.awruff.brandswitcher.ConfigHelper;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraftforge.fml.common.network.handshake.ChannelRegistrationHandler;
@@ -16,7 +15,7 @@ public class ChannelRegistrationHandlerMixin {
             method = "channelRead0(Lio/netty/channel/ChannelHandlerContext;Lnet/minecraftforge/fml/common/network/internal/FMLProxyPacket;)V",
             at = @At("HEAD"), cancellable = true
     )
-    public void channelRead0Vanilla(ChannelHandlerContext ctx, FMLProxyPacket msg, final CallbackInfo ci) {
+    private void channelRead0Vanilla(ChannelHandlerContext ctx, FMLProxyPacket msg, final CallbackInfo ci) {
         if (ConfigHelper.disableForge()) ci.cancel();
     }
 }

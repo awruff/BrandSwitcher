@@ -1,8 +1,10 @@
 ## Brand Switcher
 Switches Minecraft's Client Brand...
 
-## Credits
-Includes an adapted version of CCBlueX's "NoForge" mod.
+## Usage
+`/brandswitcher` to open oneconfig gui.
 
-## License
-Licensed under Unlicense... NoForge is licensed under ????
+## Licensing
+- Code licensed under [unlicense](LICENSE).
+  - NoForge is licensed under [MIT](src/main/java/com/github/awruff/brandswitcher/mixins/noforge/package-info.java)
+- Icon licensed under [MIT](https://lucide.dev/license)

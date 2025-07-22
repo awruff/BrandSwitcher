@@ -15,9 +15,9 @@
     "FMLCommonHandlerMixin",
     "accessors.IC17PacketCustomPayload",
     "noforge.C00HandshakeMixin",
-    "noforge.forge.ChannelRegistrationHandlerMixin",
-    "noforge.forge.HandshakeMessageHandlerMixin",
-    "noforge.forge.NetworkDispatcherMixin",
+    "noforge.patches.ChannelRegistrationHandlerMixin",
+    "noforge.patches.HandshakeMessageHandlerMixin",
+    "noforge.patches.NetworkDispatcherMixin",
     "noforge.NetworkManagerMixin"
   ]
 }

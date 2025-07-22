@@ -1,17 +1,19 @@
 package com.github.awruff.brandswitcher
 
+import cc.polyfrost.oneconfig.utils.dsl.mc
+
 object ConfigHelper {
     @JvmStatic
     fun getBrand(): String {
-        if (BrandSwitcherConfig.enabled) {
-            return BrandSwitcherConfig.brand
+        return if (BrandSwitcherConfig.enabled) {
+            BrandSwitcherConfig.brand
         } else {
-            return "fml,forge"
+            "fml,forge"
         }
     }
 
     @JvmStatic
     fun disableForge(): Boolean {
-        return BrandSwitcherConfig.enabled && BrandSwitcherConfig.noForge
+        return BrandSwitcherConfig.enabled && BrandSwitcherConfig.noForge && !mc.isIntegratedServerRunning && !mc.isSingleplayer
     }
 }

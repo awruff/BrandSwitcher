@@ -21,6 +21,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * @author CCBlueX
+ */
 @Mixin(NetHandlerPlayClient.class)
 public class NetHandlerPlayClientMixin {
     @Shadow private Minecraft gameController;

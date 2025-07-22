@@ -1,4 +1,4 @@
-package com.github.awruff.brandswitcher.mixins.noforge.forge;
+package com.github.awruff.brandswitcher.mixins.noforge.patches;
 
 import com.github.awruff.brandswitcher.ConfigHelper;
 import net.minecraft.network.Packet;
